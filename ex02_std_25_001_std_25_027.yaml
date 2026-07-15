@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: API Bibliotheque HEI
+  version: 1.0.0
+  description: Gestion des livres et des emprunts
+servers:
+  - url: https://api.hei.school/v1
+  - url: https://staging.hei.school/v2
+    description: Environnement de test
+
+paths: {}
