@@ -7,7 +7,18 @@ servers:
   - url: https://api.hei.school/v1
   - url: https://staging.hei.school/v2
     description: Environnement de test
-
+components:
+  schemas:
+    Livre:
+      type: object
+      properties:
+        id:
+          type: integer
+        titre:
+          type: string
+          required: true
+        auteur:
+          type: string
 paths:
   /livres:
     get:
@@ -39,14 +50,7 @@ paths:
             schema:
               type: array
               items:
-                type: object
-                required:
-                  - titre
-                properties:
-                  titre:
-                    type: string
-                  auteur:
-                    type: string
+                $ref: '#/components/schemas/Livre'
       responses:
         "201":
           description: Livre cree
