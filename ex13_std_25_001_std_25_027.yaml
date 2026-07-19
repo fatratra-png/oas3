@@ -208,6 +208,30 @@ paths:
                                     application/json:
                                           schema:
                                                 $ref: "#/components/schemas/Erreur"
+      /livres/{id}/emprunts:
+            get:
+                  summary: Lister les emprunts d'un livre
+                  parameters:
+                        - name: id
+                          in: path
+                          required: true
+                          schema:
+                                type: integer
+                  responses:
+                        "200":
+                              description: Liste des emprunts du livre
+                              content:
+                                    application/json:
+                                          schema:
+                                                type: array
+                                                items:
+                                                      $ref: "#/components/schemas/Emprunt"
+                        "404":
+                              description: Liste introuvable
+                              content:
+                                    application/json:
+                                          schema:
+                                                $ref: "#/components/schemas/Emprunt"
       /emprunts:
             post:
                   summary: Creer un emprunt
